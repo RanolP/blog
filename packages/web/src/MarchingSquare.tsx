@@ -44,10 +44,10 @@ export function MarchingSquare() {
       const hasGrouped = (array: number[], indexA: string, indexB: string) => {
         return (
           Array.from(indexA)
-            .map((s) => array[Number(s)])
+            .map((s) => array[Number(s)] || 0)
             .every((x) => x < 0) &&
           Array.from(indexB)
-            .map((s) => array[Number(s)])
+            .map((s) => array[Number(s)] || 0)
             .every((x) => x >= 0)
         );
       };
@@ -61,6 +61,13 @@ export function MarchingSquare() {
         context.stroke();
       };
       for (let i = 0; i < count; i++) {
+        if (
+          [calc(i - 1, 0), calc(i, 0), calc(i + 1, 0)].some(
+            (x) => Math.abs(x) === Infinity,
+          )
+        ) {
+          continue;
+        }
         for (let j = 0; j < count; j++) {
           const points = [
             [i, j],
