@@ -10,5 +10,8 @@
   "bugs": {
     "url": "https://github.com/RanolP/blog/issues"
   },
-  "homepage": "https://github.com/RanolP/blog#readme"
+  "homepage": "https://github.com/RanolP/blog#readme",
+  "scripts": {
+    "dev": "corepack pnpm --filter @olim/preact dev>/dev/null & corepack pnpm --filter web dev"
+  }
 }

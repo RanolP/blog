@@ -1,0 +1,19 @@
+{
+  "name": "@olim/preact",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "typings": "dist",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "preact": "^10.7.1",
+    "typescript": "^4.5.4"
+  },
+  "peerDependencies": {
+    "preact": "^10.5.15"
+  }
+}

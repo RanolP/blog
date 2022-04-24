@@ -1,4 +1,4 @@
-# cogito
+# @olim/core
 
 The Interactive Blog Post engine.
 
@@ -10,11 +10,11 @@ A sequence of pair (action, chunk).
 
 ### Chunk
 
-A sequence of block.
+A sequence of Node.
 
-### Block
+### Node
 
-A complete unit of text.
+A basic unit of text.
 
 ### Action
 

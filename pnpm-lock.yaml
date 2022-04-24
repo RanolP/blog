@@ -5,30 +5,45 @@ importers:
   .:
     specifiers: {}
 
-  packages/blog:
+  packages/olim-core:
     specifiers:
+      typescript: ^4.5.4
+    devDependencies:
+      typescript: 4.6.3
+
+  packages/olim-preact:
+    specifiers:
+      preact: ^10.7.1
+      typescript: ^4.5.4
+    devDependencies:
+      preact: 10.7.1
+      typescript: 4.6.3
+
+  packages/puridict:
+    specifiers: {}
+
+  packages/web:
+    specifiers:
+      '@olim/preact': workspace:olim-preact
       '@preact/preset-vite': ^2.1.5
       '@stitches/react': ^1.2.7
+      '@types/babel__core': ^7.1.19
+      '@types/estree': ^0.0.51
       preact: ^10.5.15
       typescript: ^4.5.4
       vite: ^2.9.2
       vite-plugin-ssr: ^0.3.64
     dependencies:
+      '@olim/preact': link:../olim-preact
       '@stitches/react': 1.2.7
       preact: 10.7.1
     devDependencies:
       '@preact/preset-vite': 2.2.0_preact@10.7.1+vite@2.9.5
+      '@types/babel__core': 7.1.19
+      '@types/estree': 0.0.51
       typescript: 4.6.3
       vite: 2.9.5
       vite-plugin-ssr: 0.3.64_vite@2.9.5
-
-  packages/cogito:
-    specifiers:
-      '@types/node': ^17.0.24
-      typescript: ^4.5.4
-    devDependencies:
-      '@types/node': 17.0.24
-      typescript: 4.6.3
 
 packages:
 
@@ -381,8 +396,37 @@ packages:
       react: '>= 16.3.0'
     dev: false
 
-  /@types/node/17.0.24:
-    resolution: {integrity: sha512-aveCYRQbgTH9Pssp1voEP7HiuWlD2jW2BO56w+bVrJn04i61yh6mRfoKO6hEYQD9vF+W8Chkwc6j1M36uPkx4g==}
+  /@types/babel__core/7.1.19:
+    resolution: {integrity: sha512-WEOTgRsbYkvA/KCsDwVEGkd7WAr1e3g31VHQ8zy5gul/V1qKullU/BU5I68X5v7V3GnB9eotmom4v5a5gjxorw==}
+    dependencies:
+      '@babel/parser': 7.17.9
+      '@babel/types': 7.17.0
+      '@types/babel__generator': 7.6.4
+      '@types/babel__template': 7.4.1
+      '@types/babel__traverse': 7.17.0
+    dev: true
+
+  /@types/babel__generator/7.6.4:
+    resolution: {integrity: sha512-tFkciB9j2K755yrTALxD44McOrk+gfpIpvC3sxHjRawj6PfnQxrse4Clq5y/Rq+G3mrBurMax/lG8Qn2t9mSsg==}
+    dependencies:
+      '@babel/types': 7.17.0
+    dev: true
+
+  /@types/babel__template/7.4.1:
+    resolution: {integrity: sha512-azBFKemX6kMg5Io+/rdGT0dkGreboUVR0Cdm3fz9QJWpaQGJRQXl7C+6hOTCZcMll7KFyEQpgbYI2lHdsS4U7g==}
+    dependencies:
+      '@babel/parser': 7.17.9
+      '@babel/types': 7.17.0
+    dev: true
+
+  /@types/babel__traverse/7.17.0:
+    resolution: {integrity: sha512-r8aveDbd+rzGP+ykSdF3oPuTVRWRfbBiHl0rVDM2yNEmSMXfkObQLV46b4RnCv3Lra51OlfnZhkkFaDl2MIRaA==}
+    dependencies:
+      '@babel/types': 7.17.0
+    dev: true
+
+  /@types/estree/0.0.51:
+    resolution: {integrity: sha512-CuPgU6f3eT/XgKKPqKd/gLZV1Xmvf1a2R5POBOGQa6uv82xpls89HU5zKeVoyR8XzHd1RGNOlQlvUe3CFkjWNQ==}
     dev: true
 
   /ansi-styles/3.2.1:
@@ -838,7 +882,6 @@ packages:
 
   /preact/10.7.1:
     resolution: {integrity: sha512-MufnRFz39aIhs9AMFisonjzTud1PK1bY+jcJLo6m2T9Uh8AqjD77w11eAAawmjUogoGOnipECq7e/1RClIKsxg==}
-    dev: false
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}

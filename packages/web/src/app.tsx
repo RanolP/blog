@@ -1,10 +1,9 @@
-import { Logo } from './logo';
-import { MarchingSquare } from './MarchingSquare';
+import { OlimView } from '@olim/preact';
 
 export function App() {
   return (
     <>
-      <MarchingSquare />
+      <OlimView canEdit={true} />
     </>
   );
 }

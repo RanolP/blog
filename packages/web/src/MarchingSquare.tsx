@@ -1,4 +1,3 @@
-import { Logo } from './logo';
 import { useEffect, useRef, useState } from 'preact/hooks';
 
 const EPSILON = 1;
