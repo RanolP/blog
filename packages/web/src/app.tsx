@@ -23,8 +23,18 @@ const StyledInventoryView = styled(OlimInventoryView, {
 });
 
 const ChunkList = styled('div', {
+  background: '#e9e9e9',
   gridArea: 'chunk-list',
 });
+
+const StyledChunkEditor = styled(OlimChunkEditor, {
+  margin: '4em 1em',
+  padding: '1em',
+  background: 'white',
+  boxShadow: `
+    0 0 1em 0.3em #0a0a0a44
+  `
+})
 
 export function App() {
   const [editor] = useState(new OlimEditor());
@@ -38,9 +48,9 @@ export function App() {
           <OlimItemView />
         </StyledInventoryView>
         <ChunkList>
-          <OlimChunkEditor />
-          <OlimChunkEditor />
-          <OlimChunkEditor />
+          <StyledChunkEditor />
+          <StyledChunkEditor />
+          <StyledChunkEditor />
         </ChunkList>
       </Container>
       <MarchingSquare />
