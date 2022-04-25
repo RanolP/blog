@@ -8,7 +8,10 @@ export function MarchingSquare() {
   const [source, setSource] = useState('x ** 2 + y ** 2 - 12');
   const canvas = useRef<HTMLCanvasElement>(null);
 
-  const f = eval(`(x, y) => (${source})`);
+  function f(x: number, y: number) {
+    const { E, PI, sin, cos, tan, log, sqrt } = Math;
+    return eval(source);
+  }
 
   useEffect(() => {
     let ref = { cancel: false };
@@ -128,13 +131,81 @@ export function MarchingSquare() {
     };
   }, [source]);
 
+  const sourceStyled: JSX.Element[] = [];
+
+  let buffer = '';
+  let kind: 'str' | 'num' | 'punct' | 'func' | null = null;
+  const funcList = ['sin', 'cos', 'tan', 'log', 'sqrt'];
+
+  function flushIfOtherThan(newKind: typeof kind) {
+    if (kind === newKind) {
+      return;
+    }
+    const currentKind =
+      kind === 'str' && funcList.includes(buffer) ? 'func' : kind;
+    kind = newKind;
+    if (!buffer || !currentKind) {
+      return;
+    }
+    switch (currentKind) {
+      case 'str': {
+        sourceStyled.push(
+          <span style={{ fontStyle: 'italic' }}>{buffer}</span>,
+        );
+        break;
+      }
+      case 'num':
+      case 'func': {
+        sourceStyled.push(<span>{buffer}</span>);
+        break;
+      }
+      case 'punct': {
+        if (buffer == '**') {
+          buffer = '^';
+        }
+        if (buffer == '*') {
+          buffer = '⋅';
+        }
+        sourceStyled.push(<span>{buffer}</span>);
+        break;
+      }
+    }
+    buffer = '';
+  }
+
+  for (const c of source) {
+    if ('0' <= c && c <= '9') {
+      flushIfOtherThan('num');
+      buffer += c;
+    } else if (['+', '-', '*', '/', '%', '^', '(', ')'].includes(c)) {
+      flushIfOtherThan('punct');
+      buffer += c;
+    } else {
+      flushIfOtherThan('str');
+      buffer += c;
+    }
+  }
+
+  flushIfOtherThan(null);
+
   return (
-    <>
-      <h3>f(x, y) = {source}</h3>
+    <div style={{ textAlign: 'center', fontSize: '1.5rem' }}>
+      <p style={{ fontFamily: 'Times New Roman' }}>
+        f(<span style={{ fontStyle: 'italic' }}>x</span>,{' '}
+        <span style={{ fontStyle: 'italic' }}>y</span>) = {sourceStyled}
+      </p>
       <div>
         <canvas width={400} height={400} ref={canvas} />
       </div>
-      <input onBlur={(e) => setSource(e.currentTarget.value)} />
-    </>
+      <input
+        onBlur={(e) => setSource(e.currentTarget.value)}
+        style={{
+          fontSize: '5vmin',
+          margin: '3vmin',
+          padding: '1rem',
+          fontFamily: 'Iosevka NF',
+        }}
+      />
+    </div>
   );
 }

@@ -31,6 +31,7 @@ const StyledChunkEditor = styled(OlimChunkEditor, {
   margin: '4em 1em',
   padding: '1em',
   background: 'white',
+  borderBottomLeftRadius: '0.5em',
   boxShadow: `
     0 0 1em 0.3em #0a0a0a44
   `
