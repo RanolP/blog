@@ -2,8 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "dist",
-    "types": ["preact"]
+    "outDir": "dist"
   },
-  "include": ["definition.d.ts", "src"]
+  "include": ["src"]
 }

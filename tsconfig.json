@@ -14,8 +14,5 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment"
-  },
-  "references": [{ "path": "./tsconfig.node.json" }]
+  }
 }

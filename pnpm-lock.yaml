@@ -14,7 +14,7 @@ importers:
   packages/olim-preact:
     specifiers:
       preact: ^10.7.1
-      typescript: ^4.5.4
+      typescript: ^4.6.3
     devDependencies:
       preact: 10.7.1
       typescript: 4.6.3
@@ -24,6 +24,7 @@ importers:
 
   packages/web:
     specifiers:
+      '@olim/core': workspace:olim-core
       '@olim/preact': workspace:olim-preact
       '@preact/preset-vite': ^2.1.5
       '@stitches/react': ^1.2.7
@@ -34,6 +35,7 @@ importers:
       vite: ^2.9.2
       vite-plugin-ssr: ^0.3.64
     dependencies:
+      '@olim/core': link:../olim-core
       '@olim/preact': link:../olim-preact
       '@stitches/react': 1.2.7
       preact: 10.7.1

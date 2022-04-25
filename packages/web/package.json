@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@olim/core": "workspace:olim-core",
     "@olim/preact": "workspace:olim-preact",
     "@stitches/react": "^1.2.7",
     "preact": "^10.5.15"

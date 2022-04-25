@@ -2,6 +2,14 @@
   "name": "@olim/core",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
+  "source": "./src/index.ts",
+  "typings": "dist",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
   "devDependencies": {
     "typescript": "^4.5.4"
   }
