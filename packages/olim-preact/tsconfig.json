@@ -3,7 +3,9 @@
   "compilerOptions": {
     "declaration": true,
     "outDir": "dist",
+    "declarationDir": "dist",
     "types": ["preact"]
   },
-  "include": ["definition.d.ts", "src"]
+  "files": ["definition.d.ts"],
+  "include": ["src"]
 }

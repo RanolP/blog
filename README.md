@@ -16,6 +16,8 @@
 - https://news.hada.io/topic?id=4433
 - https://liqvidjs.org/
 - https://seaborn.pydata.org/ (color palette)
-- 텍스트 에디터
+- Text Editor
   - https://stylojs.com/
   - https://github.com/codex-team/editor.js
+  - https://lexical.dev/
+
