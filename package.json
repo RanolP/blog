@@ -12,6 +12,7 @@
   },
   "homepage": "https://github.com/RanolP/blog#readme",
   "scripts": {
-    "dev": "corepack pnpm --filter \"@olim/*\" dev>/dev/null & corepack pnpm --filter web dev"
+    "dev": "corepack pnpm --filter \"@olim/*\" dev>/dev/null & corepack pnpm --filter web dev",
+    "build": "corepack pnpm --filter web build"
   }
 }

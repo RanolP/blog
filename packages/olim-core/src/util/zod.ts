@@ -1,6 +1,12 @@
 import { z } from 'zod';
-import { NanoId10 } from './nanoid';
-import { NoInline, Tagged } from './type';
+import { NanoId10 } from './nanoid.js';
+import { NoInline, Tagged } from './type.js';
+
+export type AlterSchemaOutput<Schema extends z.Schema, NewOutput> = z.Schema<
+  NewOutput,
+  Schema['_def'],
+  Schema['_input']
+>;
 
 export type ZodTaggedString<
   TaggedString extends NoInline<Tagged<string, unknown>>,
@@ -20,4 +26,8 @@ export function taggedString<
 
 export function nanoid10(): ZodTaggedString<NanoId10> {
   return taggedString<NanoId10>().length(10);
+}
+
+export function fallback<T>(value: T): z.ZodSchema<T> {
+  return z.any().transform(() => value);
 }

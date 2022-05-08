@@ -2,24 +2,41 @@ import { OlimChunkEditor, OlimInventoryView, OlimItemView } from '@olim/preact';
 import { OlimEditor } from '@olim/core';
 import { useState } from 'preact/hooks';
 import { styled } from './stitches.config';
-import { MarchingSquare } from './MarchingSquare';
+import { MarchingSquare } from './components/sample/MarchingSquare';
 import { installResetStyle } from './styles/reset';
 
 const Container = styled('main', {
   width: '100vw',
   minHeight: '100vh',
   display: 'grid',
-  gridTemplate: `
-    "inventory chunk-list" / 1fr 1fr
+  gridTemplateAreas: `
+    "header    header    "
+    "inventory chunk-list"
   `,
+  gridTemplateColumns: '1fr 1fr',
+  gridTemplateRows: 'auto 1fr',
+  zIndex: 100,
+});
+
+const Header = styled('header', {
+  gridArea: 'header',
+  position: 'sticky',
+  top: 0,
+  zIndex: 100,
+  height: '3rem',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  padding: '0 1rem',
+  background: 'white',
 });
 
 const StyledInventoryView = styled(OlimInventoryView, {
   gridArea: 'inventory',
   background: '#d2d2d2',
   position: 'sticky',
-  top: 0,
-  height: '100vh',
+  top: '3rem',
+  height: 'calc(100vh - 3rem)',
   alignSelf: 'start',
   boxShadow: `
     #0a0a0a44 0.5rem 0.5rem 0.5rem inset,
@@ -33,11 +50,11 @@ const ChunkList = styled('div', {
 });
 
 const ChunkWrap = styled('div', {
-  height: '100vh',
+  height: 'calc(100vh - 3rem)',
   display: 'grid',
   alignItems: 'center',
   justifyItems: 'center',
-  scrollSnapAlign: 'start',
+  scrollSnapAlign: 'end',
 });
 
 const StyledChunkEditor = styled(OlimChunkEditor, {
@@ -55,26 +72,27 @@ export function App() {
   const [editor] = useState(new OlimEditor());
 
   return (
-    <>
-      <Container>
-        <StyledInventoryView>
-          <OlimItemView />
-          <OlimItemView />
-          <OlimItemView />
-        </StyledInventoryView>
-        <ChunkList>
-          <ChunkWrap>
-            <StyledChunkEditor />
-          </ChunkWrap>
-          <ChunkWrap>
-            <StyledChunkEditor />
-          </ChunkWrap>
-          <ChunkWrap>
-            <StyledChunkEditor />
-          </ChunkWrap>
-        </ChunkList>
-      </Container>
-      <MarchingSquare />
-    </>
+    <Container>
+      <Header>
+        난로 앞 / 블로그를 만들기 위한 한 걸음 / 어떤 서브타이틀의 세계 / 그 속
+        서브 타이틀
+      </Header>
+      <StyledInventoryView>
+        <OlimItemView />
+        <OlimItemView />
+        <OlimItemView />
+      </StyledInventoryView>
+      <ChunkList>
+        <ChunkWrap>
+          <StyledChunkEditor />
+        </ChunkWrap>
+        <ChunkWrap>
+          <StyledChunkEditor />
+        </ChunkWrap>
+        <ChunkWrap>
+          <StyledChunkEditor />
+        </ChunkWrap>
+      </ChunkList>
+    </Container>
   );
 }
