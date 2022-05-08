@@ -1,6 +1,6 @@
 {
   "version": "0.3.64",
   "usesClientRouter": true,
-  "baseUrl": "/",
+  "baseUrl": "/blog/",
   "baseAssets": null
 }
