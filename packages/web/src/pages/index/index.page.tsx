@@ -1,16 +1,10 @@
-import { Counter } from './Counter';
+import { Link } from '../../renderer/Link';
 
 export function Page() {
   return (
     <>
-      <h1>Welcome</h1>
-      This page is:
-      <ul>
-        <li>Rendered to HTML.</li>
-        <li>
-          Interactive. <Counter />
-        </li>
-      </ul>
+      <Link href="/posts/블로그를-만들기-위한-한-걸음/edit">여기</Link>에서
+      에디터를 구경하세요 아직 아무것도 안 됨
     </>
   );
 }
