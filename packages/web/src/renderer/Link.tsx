@@ -1,8 +1,8 @@
 import { usePageContext } from './usePageContext';
 
-export { Link };
+const BaseUrl = 'https://ranolp.github.io/blog/';
 
-function Link({ href, children }: { href: string; children: string }) {
+export function Link({ href, children }: { href: string; children: string }) {
   const pageContext = usePageContext();
   const className = [
     'navigation-link',
@@ -11,7 +11,7 @@ function Link({ href, children }: { href: string; children: string }) {
     .filter(Boolean)
     .join(' ');
   return (
-    <a href={href} className={className}>
+    <a href={new URL(href, BaseUrl).pathname} className={className}>
       {children}
     </a>
   );
