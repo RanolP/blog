@@ -6,6 +6,7 @@ import { render as renderToString } from 'preact-render-to-string';
 import { getCssText } from '../stitches.config.js';
 import { installResetStyle } from '../styles/reset';
 import { installTypographyStyle } from '../styles/typography';
+import favicon from '../favicon.svg';
 
 export const passToClient = [
   'pageProps',
@@ -40,7 +41,7 @@ export async function render(pageContext: PageContextBuiltIn & PageContext) {
         <link
           rel="icon"
           type="image/svg+xml"
-          href="${import.meta.env.BASE_URL}src/favicon.svg"
+          href="${favicon}"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
