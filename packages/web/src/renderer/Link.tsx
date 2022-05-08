@@ -1,7 +1,5 @@
 import { usePageContext } from './usePageContext';
 
-const BaseUrl = 'https://ranolp.github.io/blog/';
-
 export function Link({ href, children }: { href: string; children: string }) {
   const pageContext = usePageContext();
   const className = [
@@ -11,7 +9,7 @@ export function Link({ href, children }: { href: string; children: string }) {
     .filter(Boolean)
     .join(' ');
   return (
-    <a href={new URL(href, BaseUrl).pathname} className={className}>
+    <a href={href} className={className}>
       {children}
     </a>
   );
