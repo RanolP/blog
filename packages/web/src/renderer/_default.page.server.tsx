@@ -4,13 +4,20 @@ import type { PageContext } from './types.js';
 import type { PageContextBuiltIn } from 'vite-plugin-ssr';
 import { render as renderToString } from 'preact-render-to-string';
 import { getCssText } from '../stitches.config.js';
+import { installResetStyle } from '../styles/reset';
+import { installTypographyStyle } from '../styles/typography';
 
-export { render };
-export { passToClient };
+export const passToClient = [
+  'pageProps',
+  'documentProps',
+  'someAsyncProps',
+  'routeParams',
+];
 
-const passToClient = ['pageProps', 'documentProps', 'someAsyncProps'];
+export async function render(pageContext: PageContextBuiltIn & PageContext) {
+  installResetStyle();
+  installTypographyStyle();
 
-async function render(pageContext: PageContextBuiltIn & PageContext) {
   const { Page, pageProps } = pageContext;
   const pageHtml = renderToString(
     <PageShell pageContext={pageContext}>
@@ -36,7 +43,7 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
         <title>${title}</title>
         <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
         <style id="stitches">
-          ${getCssText()}
+          ${dangerouslySkipEscape(getCssText())}
         </style>
       </head>
       <body>

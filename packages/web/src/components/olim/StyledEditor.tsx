@@ -1,9 +1,7 @@
 import { OlimChunkEditor, OlimInventoryView, OlimItemView } from '@olim/preact';
 import { OlimEditor } from '@olim/core';
 import { useState } from 'preact/hooks';
-import { styled } from './stitches.config';
-import { MarchingSquare } from './components/sample/MarchingSquare';
-import { installResetStyle } from './styles/reset';
+import { styled } from '../../stitches.config';
 
 const Container = styled('main', {
   width: '100vw',
@@ -15,7 +13,6 @@ const Container = styled('main', {
   `,
   gridTemplateColumns: '1fr 1fr',
   gridTemplateRows: 'auto 1fr',
-  zIndex: 100,
 });
 
 const Header = styled('header', {
@@ -66,9 +63,7 @@ const StyledChunkEditor = styled(OlimChunkEditor, {
   `,
 });
 
-export function App() {
-  installResetStyle();
-
+export function StyledOlimEditor() {
   const [editor] = useState(new OlimEditor());
 
   return (

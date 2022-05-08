@@ -9,6 +9,6 @@ function getPageTitle(pageContext: {
     (pageContext.exports.documentProps || {}).title ||
     // For dynamic tiles (defined in the `export addContextProps()` of the page's `.page.server.js`)
     (pageContext.documentProps || {}).title ||
-    'Demo';
+    '난로 앞';
   return title;
 }

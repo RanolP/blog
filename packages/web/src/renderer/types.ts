@@ -12,4 +12,5 @@ export type PageContext = {
     description?: string;
     title: string;
   };
+  routeParams: Record<string, string>;
 };
