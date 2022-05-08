@@ -37,7 +37,11 @@ export async function render(pageContext: PageContextBuiltIn & PageContext) {
     <html lang="ko">
       <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="${import.meta.env.BASE_URL}src/favicon.svg"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
         <title>${title}</title>
