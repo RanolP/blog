@@ -24,7 +24,7 @@ export async function prerender() {
 
 const __dirname = url.fileURLToPath(import.meta.url);
 function findPosts(): OlimDocument[] {
-  const postsDirectory = path.join(__dirname, '../../../../../../../posts');
+  const postsDirectory = path.join(__dirname, '../../../../../../posts');
   const posts = [];
   for (const file of fs.readdirSync(postsDirectory)) {
     posts.push(
