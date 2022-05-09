@@ -7,10 +7,12 @@ importers:
 
   packages/olim-core:
     specifiers:
+      cjk-slug: ^0.3.0
       nanoid: ^3.3.4
       typescript: ^4.5.4
       zod: ^3.14.4
     dependencies:
+      cjk-slug: 0.3.0
       nanoid: 3.3.4
       zod: 3.14.4
     devDependencies:
@@ -715,6 +717,12 @@ packages:
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
     dev: true
+
+  /cjk-slug/0.3.0:
+    resolution: {integrity: sha512-q4lggMfG4iKDpKW5nquxqMXm6LOq6isc22m4IH9xYJe73R9TmnQl4r8inhEJBs7BsppIONgI/6GclzyX9Nu6+w==}
+    dependencies:
+      normalize-cjk: 0.4.0
+    dev: false
 
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -1500,6 +1508,10 @@ packages:
   /node-releases/2.0.3:
     resolution: {integrity: sha512-maHFz6OLqYxz+VQyCAtA3PTX4UP/53pa05fyDNc9CwjvJ0yEh6+xBwKsgCxMNhS8taUKBFYxfuiaD9U/55iFaw==}
     dev: true
+
+  /normalize-cjk/0.4.0:
+    resolution: {integrity: sha512-3BgD5wO0/0vrEYEoPdlkxhjnrK+nNo3arosd5PBH1Ywq/TcuO+QSg2wf2LP7Zc2cvKuGIrywmq64tuKwyR3znQ==}
+    dev: false
 
   /object-assign/4.1.1:
     resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}

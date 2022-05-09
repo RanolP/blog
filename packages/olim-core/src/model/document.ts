@@ -1,3 +1,4 @@
+import cjkSlug from 'cjk-slug';
 import { z } from 'zod';
 import { NoInline } from '../util/type.js';
 import { AlterSchemaOutput, nanoid10 } from '../util/zod.js';
@@ -14,7 +15,7 @@ const _OlimDocument = z
   })
   .transform(({ title, slug, ...document }) => ({
     title,
-    slug: slug ?? title, // TODO: title에서 slug 만들기
+    slug: slug ?? cjkSlug(title),
     ...document,
   }));
 export type OlimDocument = NoInline<z.infer<typeof _OlimDocument>>;
