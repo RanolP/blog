@@ -1,5 +1,5 @@
 import { OlimChunkEditor, OlimInventoryView, OlimItemView } from '@olim/preact';
-import { OlimEditor } from '@olim/core';
+import { OlimDocument, OlimEditor } from '@olim/core';
 import { useState } from 'preact/hooks';
 import { styled } from '../../stitches.config';
 
@@ -63,8 +63,13 @@ const StyledChunkEditor = styled(OlimChunkEditor, {
   `,
 });
 
-export function StyledOlimEditor() {
+export interface StyledOlimEditorProps {
+  initialDocument: OlimDocument;
+}
+
+export function StyledOlimEditor({ initialDocument }: StyledOlimEditorProps) {
   const [editor] = useState(new OlimEditor());
+  const [document] = useState(initialDocument);
 
   return (
     <Container>
@@ -78,15 +83,11 @@ export function StyledOlimEditor() {
         <OlimItemView />
       </StyledInventoryView>
       <ChunkList>
-        <ChunkWrap>
-          <StyledChunkEditor />
-        </ChunkWrap>
-        <ChunkWrap>
-          <StyledChunkEditor />
-        </ChunkWrap>
-        <ChunkWrap>
-          <StyledChunkEditor />
-        </ChunkWrap>
+        {document.slides.map((slide) => (
+          <ChunkWrap key={slide.chunk.id.toString()}>
+            <StyledChunkEditor chunk={slide.chunk} />
+          </ChunkWrap>
+        ))}
       </ChunkList>
     </Container>
   );

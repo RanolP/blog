@@ -8,12 +8,7 @@ import { installResetStyle } from '../styles/reset';
 import { installTypographyStyle } from '../styles/typography';
 import favicon from '../favicon.svg';
 
-export const passToClient = [
-  'pageProps',
-  'documentProps',
-  'someAsyncProps',
-  'routeParams',
-];
+export const passToClient = ['pageProps', 'documentProps', 'routeParams'];
 
 export async function render(pageContext: PageContextBuiltIn & PageContext) {
   installResetStyle();
@@ -28,10 +23,8 @@ export async function render(pageContext: PageContextBuiltIn & PageContext) {
 
   // See https://vite-plugin-ssr.com/head
   const { documentProps } = pageContext;
-  const title = (documentProps && documentProps.title) || 'Vite SSR app';
-  const desc =
-    (documentProps && documentProps.description) ||
-    'App using Vite + vite-plugin-ssr';
+  const title = documentProps?.title ?? '난로 앞';
+  const desc = documentProps?.description ?? 'App using Vite + vite-plugin-ssr';
 
   const documentHtml = escapeInject`
     <!DOCTYPE html>

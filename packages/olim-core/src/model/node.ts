@@ -1,13 +1,24 @@
 import { z } from 'zod';
-import { NoInline } from '../util/type.js';
-import { AlterSchemaOutput } from '../util/zod.js';
 
-const _OlimNode = z.strictObject({
-  isBlock: z.boolean(),
-  kind: z.string(),
-  innerContent: z.string(),
-  metadata: z.record(z.string()),
-});
-export type OlimNode = NoInline<z.infer<typeof _OlimNode>>;
-export const OlimNode: AlterSchemaOutput<typeof _OlimNode, OlimNode> =
-  _OlimNode;
+interface OlimNodeInput {
+  kind: string;
+  innerContent: string;
+  children?: OlimNodeInput[] | undefined;
+  metadata?: Record<string, string> | undefined;
+}
+export interface OlimNode {
+  kind: string;
+  innerContent: string;
+  children: OlimNode[];
+  metadata: Record<string, string>;
+}
+
+export const OlimNode: z.ZodType<OlimNode, z.ZodTypeDef, OlimNodeInput> =
+  z.lazy(() =>
+    z.strictObject({
+      kind: z.string(),
+      innerContent: z.string(),
+      children: z.array(OlimNode).default([]),
+      metadata: z.record(z.string()).default({}),
+    }),
+  );

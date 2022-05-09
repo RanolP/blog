@@ -5,5 +5,43 @@
   },
   "id": "fI3ovIT3Wp",
   "title": "블로그를 만들기 위한 한 걸음",
-  "slug": "블로그를-만들기-위한-한-걸음"
+  "slug": "블로그를-만들기-위한-한-걸음",
+  "slides": [
+    {
+      "conductingList": [],
+      "chunk": {
+        "id": "xpTrA-Tro-",
+        "nodeList": [
+          {
+            "kind": "text",
+            "innerContent": "Hello, world!"
+          }
+        ]
+      }
+    },
+    {
+      "conductingList": [],
+      "chunk": {
+        "id": "741fYQPm79",
+        "nodeList": [
+          {
+            "kind": "text",
+            "innerContent": "두번째 슬라이드"
+          }
+        ]
+      }
+    },
+    {
+      "conductingList": [],
+      "chunk": {
+        "id": "OQwqxcryFs",
+        "nodeList": [
+          {
+            "kind": "text",
+            "innerContent": "The Third Eye"
+          }
+        ]
+      }
+    }
+  ]
 }

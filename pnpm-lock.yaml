@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 importers:
 
@@ -20,9 +20,11 @@ importers:
 
   packages/olim-preact:
     specifiers:
+      '@olim/core': workspace:olim-core
       preact: ^10.7.1
       typescript: ^4.6.3
     devDependencies:
+      '@olim/core': link:../olim-core
       preact: 10.7.1
       typescript: 4.6.3
 
@@ -63,14 +65,14 @@ importers:
       '@fastify/static': 5.0.2
       '@olim/core': link:../olim-core
       '@olim/preact': link:../olim-preact
-      '@react-three/fiber': 8.0.13_9bfab5d69556db861da30525f2351767
+      '@react-three/fiber': 8.0.13_tp5llvuvk3nymhndaus7enixm4
       '@stitches/react': 1.2.7_@preact+compat@17.0.3
       fastify: 3.29.0
       preact: 10.7.1
       preact-render-to-string: 5.2.0_preact@10.7.1
       react: /@preact/compat/17.0.3_preact@10.7.1
       react-dom: /@preact/compat/17.0.3_preact@10.7.1
-      react-pixi-fiber: 0.14.3_9bfab5d69556db861da30525f2351767
+      react-pixi-fiber: 0.14.3_tp5llvuvk3nymhndaus7enixm4
     devDependencies:
       '@preact/preset-vite': 2.2.0_preact@10.7.1+vite@2.9.5
       '@types/babel__core': 7.1.19
@@ -256,6 +258,8 @@ packages:
     resolution: {integrity: sha512-vqUSBLP8dQHFPdPi9bc5GK9vRkYHJ49fsZdtoJ8EQ8ibpwk5rPKfvNIwChB0KVXcIjcepEBBd2VHC5r9Gy8ueg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.17.0
     dev: true
 
   /@babel/plugin-syntax-jsx/7.16.7:
@@ -377,6 +381,8 @@ packages:
       p-limit: 3.1.0
       readable-stream: 3.6.0
       send: 0.17.2
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@jridgewell/resolve-uri/3.0.5:
@@ -477,7 +483,7 @@ packages:
       - supports-color
     dev: true
 
-  /@react-three/fiber/8.0.13_9bfab5d69556db861da30525f2351767:
+  /@react-three/fiber/8.0.13_tp5llvuvk3nymhndaus7enixm4:
     resolution: {integrity: sha512-hJdVS2F8LJFenR07l80JnkLAMeJ7gf3wiB8OzQ49GjSwjPgPG8bjYumMmchY/eouU+myYtNej0tK6mV6wctmdQ==}
     peerDependencies:
       expo: '>=43.0'
@@ -505,7 +511,7 @@ packages:
       react-dom: /@preact/compat/17.0.3_preact@10.7.1
       react-merge-refs: 1.1.0
       react-reconciler: 0.27.0_@preact+compat@17.0.3
-      react-use-measure: 2.1.1_9bfab5d69556db861da30525f2351767
+      react-use-measure: 2.1.1_tp5llvuvk3nymhndaus7enixm4
       scheduler: 0.21.0
       suspend-react: 0.0.8_@preact+compat@17.0.3
       zustand: 3.7.2_@preact+compat@17.0.3
@@ -782,6 +788,11 @@ packages:
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.0.0
     dev: false
@@ -868,6 +879,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -876,6 +888,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -884,6 +897,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -892,6 +906,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -900,6 +915,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -908,6 +924,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -916,6 +933,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -924,6 +942,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -932,6 +951,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -940,6 +960,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -948,6 +969,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -956,6 +978,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -964,6 +987,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -972,6 +996,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -980,6 +1005,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -994,6 +1020,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1010,6 +1037,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1018,6 +1046,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1026,6 +1055,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1034,6 +1064,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1229,6 +1260,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -1687,7 +1719,7 @@ packages:
     resolution: {integrity: sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==}
     dev: false
 
-  /react-pixi-fiber/0.14.3_9bfab5d69556db861da30525f2351767:
+  /react-pixi-fiber/0.14.3_tp5llvuvk3nymhndaus7enixm4:
     resolution: {integrity: sha512-BVAdYPVX1zJsVVv6/eYEg8k/lLIzDKhQDSC72f02sbu3Eg8aDNs0mBkEeZtANyXJQGUOzE0TNuBXG1yrAVY51Q==}
     peerDependencies:
       pixi.js: ^4.4.0 || ^5.0.0
@@ -1727,7 +1759,7 @@ packages:
       scheduler: 0.21.0
     dev: false
 
-  /react-use-measure/2.1.1_9bfab5d69556db861da30525f2351767:
+  /react-use-measure/2.1.1_tp5llvuvk3nymhndaus7enixm4:
     resolution: {integrity: sha512-nocZhN26cproIiIduswYpV5y5lQpSQS1y/4KuvUCjSKmw7ZWIS/+g3aFnX3WdBkyuGUtTLif3UTqnLLhbDoQig==}
     peerDependencies:
       react: '>=16.13'
@@ -1885,6 +1917,8 @@ packages:
       on-finished: 2.3.0
       range-parser: 1.2.1
       statuses: 1.5.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /set-cookie-parser/2.4.8:
