@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-interface OlimNodeInput {
+export interface OlimNodeInput {
   kind: string;
   innerContent: string;
   children?: OlimNodeInput[] | undefined;
