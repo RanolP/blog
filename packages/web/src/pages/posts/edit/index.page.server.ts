@@ -22,9 +22,13 @@ export async function prerender() {
   return posts.map((post) => `/posts/${post.slug}/edit`);
 }
 
-const __dirname = url.fileURLToPath(import.meta.url);
+const projectRoot = import.meta.env.PROD
+  ? // import.meta.url = "blog/packages/web/dist/assets/[filename].js"
+    path.join(url.fileURLToPath(import.meta.url), '../../../../../../')
+  : // import.meta.url = "blog/packages/web/src/pages/posts[filename].ts"
+    path.join(url.fileURLToPath(import.meta.url), '../../../../../../../');
 function findPosts(): OlimDocument[] {
-  const postsDirectory = path.join(__dirname, '../../../../../../posts');
+  const postsDirectory = path.join(projectRoot, './posts');
   const posts = [];
   for (const file of fs.readdirSync(postsDirectory)) {
     posts.push(

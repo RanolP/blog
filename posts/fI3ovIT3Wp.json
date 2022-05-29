@@ -13,6 +13,7 @@
         "id": "xpTrA-Tro-",
         "nodeList": [
           {
+            "id": "9ZkvHKcobQ",
             "kind": "text",
             "innerContent": "Hello, world!"
           }
@@ -25,6 +26,7 @@
         "id": "741fYQPm79",
         "nodeList": [
           {
+            "id": "HW7D7NJrY2",
             "kind": "text",
             "innerContent": "두번째 슬라이드"
           }
@@ -37,6 +39,7 @@
         "id": "OQwqxcryFs",
         "nodeList": [
           {
+            "id": "-ce8zVKcnM",
             "kind": "text",
             "innerContent": "The Third Eye"
           }

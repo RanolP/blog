@@ -74,8 +74,8 @@ export function StyledOlimEditor({ initialDocument }: StyledOlimEditorProps) {
   return (
     <Container>
       <Header>
-        난로 앞 / 블로그를 만들기 위한 한 걸음 / 어떤 서브타이틀의 세계 / 그 속
-        서브 타이틀
+        난로 앞 / 블로그를 만들기 위한 한 걸음 <br />
+        어떤 서브타이틀의 세계 / 그 속 서브 타이틀
       </Header>
       <StyledInventoryView>
         <OlimItemView />

@@ -4,7 +4,7 @@
 
 TeX and its variants are good for typesetting.
 But typesetting is not enough.
-More meaningful expressions are required.
+Semantic expresions are required.
 
 ## Features
 

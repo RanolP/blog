@@ -4,6 +4,7 @@ import { NoInline } from '../util/type.js';
 import { AlterSchemaOutput, nanoid10 } from '../util/zod.js';
 import { OlimAuthor } from './author.js';
 import { OlimSlide } from './slide.js';
+import { OlimSubtitle } from './subtitle.js';
 
 const _OlimDocument = z
   .strictObject({
@@ -12,11 +13,12 @@ const _OlimDocument = z
     title: z.string(),
     slug: z.string().optional(),
     slides: z.array(OlimSlide).default([]),
+    subtitles: z.array(OlimSubtitle).default([]),
   })
-  .transform(({ title, slug, ...document }) => ({
+  .transform(({ title, slug, ...rest }) => ({
     title,
     slug: slug ?? cjkSlug(title),
-    ...document,
+    ...rest,
   }));
 export type OlimDocument = NoInline<z.infer<typeof _OlimDocument>>;
 export const OlimDocument: AlterSchemaOutput<
