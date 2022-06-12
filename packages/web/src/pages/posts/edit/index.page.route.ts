@@ -1,1 +1,1 @@
-export default '/posts/:id/edit';
+export default '/posts/@id/edit';
