@@ -1,1 +1,0 @@
-import{a as e,F as n,j as r}from"./chunk-28d4f1e3.js";import"./chunk-1659798d.js";function d({is404:i,errorInfo:o}){return i?e(n,{children:[r("h1",{children:"404 Page Not Found"}),r("p",{children:"This page could not be found."}),r("p",{children:o})]}):e(n,{children:[r("h1",{children:"500 Internal Server Error"}),r("p",{children:"Something went wrong."})]})}export{d as Page};
